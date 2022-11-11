@@ -22,4 +22,4 @@ const postsSchema = new Schema(
 );
 
 // Prevent recompilation of model if it already exists
-export default mongoose.models.Posts || mongoose.model('Posts', postsSchema);
+export default mongoose.models.posts || mongoose.model('posts', postsSchema);

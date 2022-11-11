@@ -32,4 +32,4 @@ const volunteersSchema = new mongoose.Schema(
 );
 
 // Prevent recompilation of model if it already exists
-export default mongoose.models.Volunteers || mongoose.model('Volunteers', volunteersSchema);
+export default mongoose.models.volunteers || mongoose.model('volunteers', volunteersSchema);

@@ -18,4 +18,4 @@ const messagesSchema = new Schema(
 );
 
 // Prevent recompilation of model if it already exists
-export default mongoose.models.Messages || mongoose.model('Messages', messagesSchema);
+export default mongoose.models.messages || mongoose.model('messages', messagesSchema);
