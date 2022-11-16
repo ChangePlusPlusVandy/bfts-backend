@@ -1,11 +1,23 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const volunteersSchema = new mongoose.Schema(
+const volunteerSchema = new mongoose.Schema(
 	{
 		name: {
 			required: true,
 			type: String,
+		},
+		pronouns: {
+			required: true,
+			type: String,
+		},
+		race: {
+			required: true,
+			type: String,
+		},
+		birthday: {
+			required: true,
+			type: Date,
 		},
 		location: {
 			required: true,
@@ -15,21 +27,32 @@ const volunteersSchema = new mongoose.Schema(
 			required: true,
 			type: Integer,
 		},
-		pronouns: {
+		email: {
 			required: true,
 			type: String,
 		},
-		picture: {
+		vaccination: {
+			required: true,
+			type: Boolean,
+		},
+		startdate: {
+			required: true,
+			type: Date,
+		},
+		startlocation: {
+			required: true,
+			type: String,
+		},
+		socialmedia: {
 			required: false,
 			type: String,
 		},
-		admintag: {
-			required: false,
-			type: Integer,
+		background: {
+			required: true,
+			type: String,
 		},
 	},
 	{ timestamps: true }
 );
 
-// Prevent recompilation of model if it already exists
-export default mongoose.models.volunteers || mongoose.model('volunteers', volunteersSchema);
+module.exports = mongoose.model('Volunteer', volunteerSchema);
