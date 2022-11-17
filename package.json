@@ -1,23 +1,26 @@
 {
-  "name": "bfts-backend",
-  "version": "1.0.0",
-  "description": "backend for backpacks for the street",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChangePlusPlusVandy/bfts-backend.git"
-  },
-  "author": "ChangePlusPlus",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChangePlusPlusVandy/bfts-backend/issues"
-  },
-  "homepage": "https://github.com/ChangePlusPlusVandy/bfts-backend#readme",
-  "dependencies": {
-    "express": "^4.18.2",
-    "prettier": "^2.7.1"
-  }
+	"name": "bfts-backend",
+	"version": "1.0.0",
+	"description": "backend for backpacks for the street",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ChangePlusPlusVandy/bfts-backend.git"
+	},
+	"author": "ChangePlusPlus",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ChangePlusPlusVandy/bfts-backend/issues"
+	},
+	"homepage": "https://github.com/ChangePlusPlusVandy/bfts-backend#readme",
+	"dependencies": {
+		"express": "^4.18.2"
+	},
+	"devDependencies": {
+		"prettier": "^2.7.1"
+	}
 }
