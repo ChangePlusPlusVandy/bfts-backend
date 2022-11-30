@@ -27,6 +27,10 @@ const clientsSchema = new Schema(
 			required: true,
 			type: String,
 		},
+		resourceTags: {
+			required: false,
+			type: [Schema.Types.ObjectId],
+		}
 	},
 	{
 		timestamps: true,
