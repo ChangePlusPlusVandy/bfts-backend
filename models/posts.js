@@ -26,7 +26,7 @@ const postsSchema = new Schema(
 		reactions: {
 			type: [Schema.Types.ObjectId],
 			required: false,
-		}
+		},
 	},
 	{
 		timestamps: true,
