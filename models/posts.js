@@ -7,11 +7,23 @@ const postsSchema = new Schema(
 			type: Schema.Types.ObjectId,
 			required: true,
 		},
+		title: {
+			type: String,
+			required: false,
+		},
 		text: {
 			type: String,
 			required: true,
 		},
+		isReply: {
+			type: Boolean,
+			required: true,
+		},
 		replies: {
+			type: [Schema.Types.ObjectId],
+			required: false,
+		},
+		reactions: {
 			type: [Schema.Types.ObjectId],
 			required: false,
 		},
