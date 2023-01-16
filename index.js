@@ -1,18 +1,23 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const VerifyToken = require("./firebase-express-auth/VerifyToken");
+
+dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-app.use(cors());
-app.use(helmet());
+app.use(cors()); 
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true }));
 
-const port = 3000;
+app.use("/data", VerifyToken, require("./firebase-express-auth/dataRoute"));
 
-app.get('/', (req, res) => {
-	res.send('Hello World!');
+app.get("/", (req, res) => {
+    res.send("Express Auth Temp!");
 });
 
-app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
