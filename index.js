@@ -13,6 +13,9 @@ app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
 
+// Routers
+app.use("/messages", require("./routes/messages.router.js"));
+
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
 });

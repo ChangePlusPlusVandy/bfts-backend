@@ -1,14 +1,14 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema.Types;
 
-const messagesSchema = new Schema(
+const messagesSchema = new mongoose.Schema(
 	{
 		message: {
 			type: String,
 			required: true,
 		},
 		sender: {
-			type: Schema.Types.ObjectId,
+			type: ObjectId,
 			required: true,
 		},
 	},
@@ -17,5 +17,4 @@ const messagesSchema = new Schema(
 	}
 );
 
-// Prevent recompilation of model if it already exists
-export default mongoose.models.messages || mongoose.model('messages', messagesSchema);
+module.exports = Message = mongoose.model("Message", messagesSchema);
