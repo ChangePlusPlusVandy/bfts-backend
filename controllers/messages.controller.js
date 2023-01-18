@@ -18,7 +18,6 @@ const deleteMessage = (req, res) => {
 	res.send('Delete Message ' + req.params.messageId);
 };
 
-
 module.exports = {
 	createMessage,
 	getMessage,
