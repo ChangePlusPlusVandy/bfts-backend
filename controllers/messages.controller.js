@@ -3,19 +3,25 @@
 const Message = require('../models/messages.js');
 
 const createMessage = (req, res) => {
-	res.send('Create Message');
-};
-
-const deleteMessage = (req, res) => {
-	res.send('Delete Message');
+	res.send('Add a Message');
 };
 
 const getMessage = (req, res) => {
-	res.send('Get Message');
+	res.send('Get All Messages from user ' + req.params.userId);
 };
+
+const updateMessage = (req, res) => {
+	res.send('Update Message ' + req.params.messageId);
+};
+
+const deleteMessage = (req, res) => {
+	res.send('Delete Message ' + req.params.messageId);
+};
+
 
 module.exports = {
 	createMessage,
-	deleteMessage,
 	getMessage,
+	updateMessage,
+	deleteMessage,
 };
