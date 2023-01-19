@@ -30,7 +30,7 @@ module.exports = {
 	createPost,
 	getPosts,
 	updatePost,
-    deletePost,
-    replyToPost,
-    reactToPost
+	deletePost,
+	replyToPost,
+	reactToPost,
 };
