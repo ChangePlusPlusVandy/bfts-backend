@@ -1,6 +1,11 @@
 const express = require('express');
 
-const { createResource, deleteResource, getResource, updateResource } = require('../controllers/resources.controller.js');
+const {
+	createResource,
+	deleteResource,
+	getResource,
+	updateResource,
+} = require('../controllers/resources.controller.js');
 
 const router = express.Router();
 

@@ -13,12 +13,12 @@ const getResource = (req, res) => {
 };
 
 const updateResource = (req, res) => {
-    res.send('Update Resource');
+	res.send('Update Resource');
 };
 
 module.exports = {
 	createResource,
 	deleteResource,
 	getResource,
-    updateResource,
+	updateResource,
 };
