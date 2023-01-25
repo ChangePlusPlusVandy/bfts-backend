@@ -4,9 +4,9 @@ const { createResource, deleteResource, getResource, updateResource } = require(
 
 const router = express.Router();
 
-router.get('/create', createMessage);
-router.get('/deleteById', deleteMessage);
+router.post('/create', createMessage);
+router.delete('/deleteById', deleteMessage);
 router.get('/getByField', getMessage);
-router.get('/updateById', updateMessage);
+router.put('/updateById', updateMessage);
 
 module.exports = router;
