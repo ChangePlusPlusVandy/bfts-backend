@@ -23,6 +23,8 @@ app.use('/data', VerifyToken, require('./firebase-express-auth/dataRoute'));
 
 // Routers
 app.use('/messages', require('./routes/messages.router.js'));
+app.use('/volunteers', require('./routes/volunteers.router.js'));
+app.use('/clients', require('./routes/clients.router.js'));
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);
