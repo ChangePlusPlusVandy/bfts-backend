@@ -23,6 +23,7 @@ app.use('/data', VerifyToken, require('./firebase-express-auth/dataRoute'));
 
 // Routers
 app.use('/messages', require('./routes/messages.router.js'));
+app.use('/resources', require('./routes/resources.router.js'));
 app.use('/posts', require('./routes/posts.router.js'));
 
 app.listen(PORT, () => {
