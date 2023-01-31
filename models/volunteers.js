@@ -7,6 +7,10 @@ const volunteerSchema = new mongoose.Schema(
 			required: true,
 			type: String,
 		},
+		firebaseid: {
+			required: true,
+			type: String,
+		},
 		pronouns: {
 			required: true,
 			type: String,
