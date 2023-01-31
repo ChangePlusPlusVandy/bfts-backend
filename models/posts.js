@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema.Types;
 
-const postsSchema = new Schema(
+const postsSchema = new mongoose.Schema(
 	{
 		poster: {
-			type: Schema.Types.ObjectId,
+			type: ObjectId,
 			required: true,
 		},
 		title: {
@@ -20,11 +20,11 @@ const postsSchema = new Schema(
 			required: true,
 		},
 		replies: {
-			type: [Schema.Types.ObjectId],
+			type: [ObjectId],
 			required: false,
 		},
 		reactions: {
-			type: [Schema.Types.ObjectId],
+			type: [ObjectId],
 			required: false,
 		},
 	},
@@ -34,4 +34,4 @@ const postsSchema = new Schema(
 );
 
 // Prevent recompilation of model if it already exists
-export default mongoose.models.posts || mongoose.model('posts', postsSchema);
+module.exports = Message = mongoose.model('posts', postsSchema);
