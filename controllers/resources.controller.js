@@ -20,7 +20,7 @@ const createResource = async (req, res) => {
 
 const deleteResource = async (req, res) => {
 	try{
-		const data = Resource.findByIdAndDelete(req.body.id);
+		const data = await Resource.findByIdAndDelete(req.body.id);
 		res.json(data);
 	}
 	catch(error){
@@ -38,9 +38,9 @@ const getResource = async (req, res) => {
     }
 };
 
-const updateResource = (req, res) => {
+const updateResource = async (req, res) => {
 	try{
-		const data = Resource.findByIdAndUpdate(req.body.id, req.body);
+		const data = await Resource.findByIdAndUpdate(req.body.id, req.body);
 		res.json(data);
 	}
 	catch(error){
