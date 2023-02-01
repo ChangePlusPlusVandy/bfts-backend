@@ -10,41 +10,37 @@ const createResource = async (req, res) => {
 	});
 
 	try {
-        const dataToSave = await data.save();
-        res.status(200).json(dataToSave)
-    }
-    catch (error) {
-        res.status(500).json({message: error.message})
-    }
+		const dataToSave = await data.save();
+		res.status(200).json(dataToSave);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
 };
 
 const deleteResource = async (req, res) => {
-	try{
+	try {
 		const data = await Resource.findByIdAndDelete(req.body.id);
 		res.json(data);
-	}
-	catch(error){
-		res.status(500).json({message: error.message})
+	} catch (error) {
+		res.status(500).json({ message: error.message });
 	}
 };
 
 const getResource = async (req, res) => {
-	try{
-        const data = await Resource.findById(req.params.id);
-        res.json(data);
-    }
-    catch(error){
-        res.status(500).json({message: error.message})
-    }
+	try {
+		const data = await Resource.findById(req.params.id);
+		res.json(data);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
 };
 
 const updateResource = async (req, res) => {
-	try{
+	try {
 		const data = await Resource.findByIdAndUpdate(req.body.id, req.body);
 		res.json(data);
-	}
-	catch(error){
-		res.status(500).json({message: error.message})
+	} catch (error) {
+		res.status(500).json({ message: error.message });
 	}
 };
 
