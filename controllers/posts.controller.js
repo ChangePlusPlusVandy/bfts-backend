@@ -2,12 +2,34 @@
 
 const Post = require('../models/posts.js');
 
-const createPost = (req, res) => {
-	res.send('Create a Post');
+const createPost = async (req, res) => {
+	res.send('Create post');
+	const post = new Post({
+		poster: req.body.poster,
+		title: req.body.title,
+		text: req.body.text,
+		isReply: req.body.isReply,
+		replies: req.body.replies,
+		reactions: req.body.reactions
+	});
+
+	try {
+		const dataToSave = await post.save();
+		res.status(200).json(dataToSave);
+	} catch (error) {
+        res.status(500).json({message: error.message})
+    }
 };
 
-const getPosts = (req, res) => {
+const getPosts = async (req, res) => {
 	res.send('Get all posts');
+	try{
+        const post = await Post.find();
+        res.json(post)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
 };
 
 const updatePost = (req, res) => {
