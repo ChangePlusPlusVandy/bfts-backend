@@ -1,7 +1,6 @@
 const Volunteer = require('../models/volunteers');
 
 const createVolunteer = async (req, res) => {
-	res.send('Create Volunteer');
 	const volunteer = new Volunteer({
 		name: req.body.name,
 		firebaseid: req.body.firebaseid,
@@ -15,13 +14,13 @@ const createVolunteer = async (req, res) => {
 		startdate: req.body.startdate,
 		startlocation: req.body.startlocation,
 		socialmedia: req.body.socialmedia,
-		background: req.body.background
+		background: req.body.background,
 	});
-	try{
+	try {
 		const data = await volunteer.save();
 		res.status(200).json(data);
 	} catch (error) {
-		res.status(500).json({message: error.message})
+		res.status(500).json({ message: error.message });
 	}
 };
 
@@ -29,13 +28,13 @@ const deleteVolunteer = (req, res) => {
 	res.send('Delete Volunteer');
 };
 
-const getVolunteer = (req, res) => {
+const getVolunteer = async (req, res) => {
 	res.send('Get Volunteer');
-	try{
+	try {
 		const data = await Volunteer.find();
 		res.json(data);
 	} catch (error) {
-		res.status(500).json({message: error.message})
+		res.status(500).json({ message: error.message });
 	}
 };
 

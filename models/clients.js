@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const clientsSchema = new Schema(
@@ -13,7 +13,7 @@ const clientsSchema = new Schema(
 		},
 		birthday: {
 			required: true,
-			type: Date,
+			type: Number,
 		},
 		location: {
 			required: true,
@@ -38,4 +38,4 @@ const clientsSchema = new Schema(
 );
 
 // Prevent recompilation of model if it already exists
-export default mongoose.models.clients || mongoose.model('clients', clientsSchema);
+module.exports = Message = mongoose.model('clients', clientsSchema);

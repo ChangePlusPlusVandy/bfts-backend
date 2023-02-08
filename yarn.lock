@@ -1638,6 +1638,11 @@
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
 
+"fsevents@~2.3.2":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
+
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
@@ -2272,6 +2277,11 @@
     "supports-color" "^5.5.0"
     "touch" "^3.1.0"
     "undefsafe" "^2.0.5"
+
+"nodmeon@^0.0.1-security":
+  "integrity" "sha512-2YsGSYJfdtsSExUGJc4SReBH77CPWMlGokDtWNxmia0PObpMGGjKe/rInMMFuGn2Zs1PKEzKVoIcBUQj+4JFKQ=="
+  "resolved" "https://registry.npmjs.org/nodmeon/-/nodmeon-0.0.1-security.tgz"
+  "version" "0.0.1-security"
 
 "nopt@~1.0.10":
   "integrity" "sha512-NWmpvLSqUrgrAC9HCuxEvb+PSloHpqVu+FqcO4eeF2h5qYRhA7ev6KvelyQAKtegUbC6RypJnlEOhd8vloNKYg=="

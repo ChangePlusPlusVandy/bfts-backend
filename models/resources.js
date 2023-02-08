@@ -30,4 +30,4 @@ const resourcesSchema = new Schema(
 );
 
 // Prevent recompilation of model if it already exists
-export default mongoose.models.resources || mongoose.model('resources', resourcesSchema);
+module.exports = Message = mongoose.model('resources', resourcesSchema);
