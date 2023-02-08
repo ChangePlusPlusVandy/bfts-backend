@@ -3,7 +3,6 @@
 const Post = require('../models/posts.js');
 
 const createPost = async (req, res) => {
-	res.send('Create post');
 	const post = new Post({
 		poster: req.body.poster,
 		title: req.body.title,
@@ -22,7 +21,6 @@ const createPost = async (req, res) => {
 };
 
 const getPosts = async (req, res) => {
-	res.send('Get all posts');
 	try{
         const post = await Post.find();
         res.json(post)

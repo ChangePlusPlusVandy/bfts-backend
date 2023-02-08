@@ -4,7 +4,7 @@ const { ObjectId } = mongoose.Schema.Types;
 const postsSchema = new mongoose.Schema(
 	{
 		poster: {
-			type: ObjectId,
+			type: String,
 			required: true,
 		},
 		title: {
@@ -20,11 +20,11 @@ const postsSchema = new mongoose.Schema(
 			required: true,
 		},
 		replies: {
-			type: [ObjectId],
+			type: String,
 			required: false,
 		},
 		reactions: {
-			type: [ObjectId],
+			type: String,
 			required: false,
 		},
 	},
