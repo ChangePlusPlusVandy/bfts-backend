@@ -2,11 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const VerifyToken = require('./firebase-express-auth/VerifyToken');
 
 dotenv.config({
-	path: "./config.env"
+	path: './config.env',
 });
 
 const app = express();
@@ -17,19 +17,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
-const dbURL = process.env.DATABASE_URL
+const dbURL = process.env.DATABASE_URL;
 
 mongoose.connect(dbURL);
-const database = mongoose.connection
+const database = mongoose.connection;
 
-database.on('error', (error) => {
-	console.log(error)
-})
+database.on('error', error => {
+	console.log(error);
+});
 
 database.once('connected', () => {
-	console.log("Database Connected")
-})
-
+	console.log('Database Connected');
+});
 
 app.get('/', (req, res) => {
 	res.send('Express Auth Temp!');
