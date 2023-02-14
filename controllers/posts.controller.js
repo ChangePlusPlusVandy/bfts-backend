@@ -1,5 +1,5 @@
-//const mongoose = require("mongoose");
-
+const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema.Types;
 const Post = require('../models/posts.js');
 
 const createPost = async (req, res) => {
@@ -7,9 +7,8 @@ const createPost = async (req, res) => {
 		poster: req.body.poster,
 		title: req.body.title,
 		text: req.body.text,
-		isReply: req.body.isReply,
-		replies: req.body.replies,
-		reactions: req.body.reactions
+		replies: [],
+		reactions: []
 	});
 
 	try {
@@ -30,20 +29,66 @@ const getPosts = async (req, res) => {
     }
 };
 
-const updatePost = (req, res) => {
-	res.send('Update post by Id');
+const updatePost = async (req, res) => {
+	try {
+		const filter = { _id: mongoose.Types.ObjectId(req.params.userId) };
+		const targetPost = await Post.findOneAndUpdate(filter, { 
+			title: req.body.title,
+			text: req.body.text,
+        });
+
+        res.send(targetPost);
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 };
 
-const deletePost = (req, res) => {
-	res.send('Delete post by Id ' + req.params.userId);
+const deletePost = async (req, res) => {
+	try {
+        const filter = { _id: mongoose.Types.ObjectId(req.params.postId) };
+    	const deleteResult = await Post.deleteOne(filter);
+		res.send(deleteResult)
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 };
 
-const replyToPost = (req, res) => {
-	res.send('Reply to post by Id ' + req.params.postId);
+const replyToPost = async (req, res) => {
+	const reply = {
+		poster: req.body.poster,
+		text: req.body.text,
+		reactions: []
+	}
+
+	try {
+		const filter = { _id: mongoose.Types.ObjectId(req.params.postId) };
+		const targetPost = await Post.findOneAndUpdate(filter, { 
+			$push: { replies: reply} 
+        });
+        res.send(targetPost);
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 };
 
-const reactToPost = (req, res) => {
-	res.send('React to post by Id ' + req.params.postId);
+const reactToPost = async (req, res) => {
+	const reaction = {
+		poster: req.body.poster,
+		react: req.body.react,
+	}
+
+	try {
+		const filter = { _id: mongoose.Types.ObjectId(req.params.postId) };
+		const targetPost = await Post.findOneAndUpdate(filter, { 
+			$push: { replies: reaction} 
+        });
+        res.send(targetPost);
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 };
 
 module.exports = {
