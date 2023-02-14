@@ -82,7 +82,7 @@ const reactToPost = async (req, res) => {
 	try {
 		const filter = { _id: mongoose.Types.ObjectId(req.params.postId) };
 		const targetPost = await Post.findOneAndUpdate(filter, { 
-			$push: { replies: reaction} 
+			$push: { reactions: reaction} 
         });
         res.send(targetPost);
     }
