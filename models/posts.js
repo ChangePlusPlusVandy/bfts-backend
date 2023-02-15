@@ -40,4 +40,5 @@ const postsSchema = new mongoose.Schema(
 	}
 );
 
-module.exports = Post = mongoose.model('Post', postSchema);
+// Prevent recompilation of model if it already exists
+module.exports = Post = mongoose.model('posts', postsSchema);
