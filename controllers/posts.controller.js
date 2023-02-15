@@ -57,7 +57,6 @@ const replyToPost = async (req, res) => {
 	const reply = {
 		poster: req.body.poster,
 		text: req.body.text,
-		reactions: []
 	}
 
 	try {
@@ -73,15 +72,10 @@ const replyToPost = async (req, res) => {
 };
 
 const reactToPost = async (req, res) => {
-	const reaction = {
-		poster: req.body.poster,
-		react: req.body.react,
-	}
-
 	try {
 		const filter = { _id: mongoose.Types.ObjectId(req.params.postId) };
 		const targetPost = await Post.findOneAndUpdate(filter, { 
-			$push: { reactions: reaction} 
+			$addToSet: { reactions: mongoose.Types.ObjectId(req.body.poster)} 
         });
         res.send(targetPost);
     }

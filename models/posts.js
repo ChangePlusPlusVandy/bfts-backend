@@ -1,15 +1,5 @@
 const mongoose = require('mongoose');
-
-const reactSchema = new mongoose.Schema({
-	poster: {
-		type: String,
-		required: true,
-	},
-	react: {
-		type: Number,
-		required: false,
-	},
-});
+const { ObjectId } = mongoose.Schema.Types;
 
 const repliesSchema = new mongoose.Schema({
 	poster: {
@@ -20,16 +10,12 @@ const repliesSchema = new mongoose.Schema({
 		type: String,
 		required: false,
 	},
-	reactions: {
-		type: [reactSchema],
-		required: false,
-	},
 });
 
 const postsSchema = new mongoose.Schema(
 	{
 		poster: {
-			type: String,
+			type: ObjectId,
 			required: true,
 		},
 		title: {
@@ -45,7 +31,7 @@ const postsSchema = new mongoose.Schema(
 			required: false,
 		},
 		reactions: {
-			type: [reactSchema],
+			type: [ObjectId],
 			required: false,
 		},
 	},
