@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
-const postsSchema = new mongoose.Schema(
+const postSchema = new mongoose.Schema(
 	{
 		poster: {
 			type: ObjectId,
@@ -33,5 +33,4 @@ const postsSchema = new mongoose.Schema(
 	}
 );
 
-// Prevent recompilation of model if it already exists
-module.exports = Message = mongoose.model('posts', postsSchema);
+module.exports = Post = mongoose.model('Post', postSchema);

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
-const messagesSchema = new mongoose.Schema(
+const messageSchema = new mongoose.Schema(
 	{
 		message: {
 			type: String,
@@ -17,4 +17,4 @@ const messagesSchema = new mongoose.Schema(
 	}
 );
 
-module.exports = Message = mongoose.model('Message', messagesSchema);
+module.exports = Message = mongoose.model('Message', messageSchema);
