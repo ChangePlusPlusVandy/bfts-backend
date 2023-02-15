@@ -1,18 +1,7 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
-const repliesSchema = new mongoose.Schema({
-	poster: {
-		type: String,
-		required: true,
-	},
-	text: {
-		type: String,
-		required: false,
-	},
-});
-
-const postsSchema = new mongoose.Schema(
+const postSchema = new mongoose.Schema(
 	{
 		poster: {
 			type: ObjectId,
@@ -26,8 +15,12 @@ const postsSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		isReply: {
+			type: Boolean,
+			required: true,
+		},
 		replies: {
-			type: [repliesSchema],
+			type: [ObjectId],
 			required: false,
 		},
 		reactions: {
