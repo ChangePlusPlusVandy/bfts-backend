@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const volunteerSchema = new mongoose.Schema(
@@ -29,7 +29,7 @@ const volunteerSchema = new mongoose.Schema(
 		},
 		phone: {
 			required: true,
-			type: Integer,
+			type: Number,
 		},
 		email: {
 			required: true,
@@ -59,4 +59,4 @@ const volunteerSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-module.exports = mongoose.model('Volunteer', volunteerSchema);
+module.exports = Volunteer = mongoose.model('Volunteer', volunteerSchema);

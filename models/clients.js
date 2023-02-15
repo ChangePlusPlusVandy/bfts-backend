@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const clientsSchema = new Schema(
+const clientSchema = new Schema(
 	{
 		name: {
 			required: true,
@@ -37,5 +37,4 @@ const clientsSchema = new Schema(
 	}
 );
 
-// Prevent recompilation of model if it already exists
-export default mongoose.models.clients || mongoose.model('clients', clientsSchema);
+module.exports = Client = mongoose.model('Client', clientSchema);
