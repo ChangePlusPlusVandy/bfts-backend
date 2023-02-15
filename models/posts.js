@@ -26,10 +26,6 @@ const postSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		isReply: {
-			type: Boolean,
-			required: true,
-		},
 		replies: {
 			type: [repliesSchema],
 			required: false,
