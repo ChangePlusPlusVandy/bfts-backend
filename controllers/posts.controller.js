@@ -84,6 +84,19 @@ const reactToPost = async (req, res) => {
     }
 };
 
+const unreactToPost = async (req, res) => {
+	try {
+		const filter = { _id: mongoose.Types.ObjectId(req.params.postId) };
+		const targetPost = await Post.findOneAndUpdate(filter, { 
+			$pull: { reactions: mongoose.Types.ObjectId(req.body.poster)} 
+        });
+        res.send(targetPost);
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+};
+
 module.exports = {
 	createPost,
 	getPosts,
@@ -91,4 +104,5 @@ module.exports = {
 	deletePost,
 	replyToPost,
 	reactToPost,
+	unreactToPost,
 };

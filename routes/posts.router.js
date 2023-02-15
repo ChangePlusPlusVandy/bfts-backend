@@ -7,6 +7,7 @@ const {
 	deletePost,
 	replyToPost,
 	reactToPost,
+	unreactToPost,
 } = require('../controllers/posts.controller.js');
 
 const router = express.Router();
@@ -17,5 +18,6 @@ router.put('/update/:userId', updatePost);
 router.delete('/deleteById/:postId', deletePost);
 router.post('/replyById/:postId', replyToPost);
 router.post('/reactById/:postId', reactToPost);
+router.post('/unreactById/:postId', unreactToPost)
 
 module.exports = router;
