@@ -30,7 +30,7 @@ const getPosts = async (req, res) => {
 
 const updatePost = async (req, res) => {
 	try {
-		const filter = { _id: mongoose.Types.ObjectId(req.params.userId) };
+		const filter = { _id: mongoose.Types.ObjectId(req.params.postId) };
 		const targetPost = await Post.findOneAndUpdate(filter, { 
 			title: req.body.title,
 			text: req.body.text,

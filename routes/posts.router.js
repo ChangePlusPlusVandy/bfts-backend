@@ -14,7 +14,7 @@ const router = express.Router();
 
 router.post('/create', createPost);
 router.get('/getAll', getPosts);
-router.put('/update/:userId', updatePost);
+router.put('/update/:postId', updatePost);
 router.delete('/deleteById/:postId', deletePost);
 router.post('/replyById/:postId', replyToPost);
 router.post('/reactById/:postId', reactToPost);
