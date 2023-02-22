@@ -23,6 +23,10 @@ const clientsSchema = new Schema({
 		required: true,
 		type: String,
 	},
+	gender: {
+		required: true,
+		type: String,
+	},
 	birthday: {
 		required: true,
 		type: Number,
@@ -42,6 +46,14 @@ const clientsSchema = new Schema({
 	resourceTags: {
 		required: false,
 		type: [Schema.Types.ObjectId],
+	},
+	shelter: {
+		required: true,
+		type: Boolean,
+	},
+	specialNeeds: {
+		required: true,
+		type: [String],
 	},
 	interacted: [
 		{
