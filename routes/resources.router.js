@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post('/create', createResource);
 router.delete('/deleteById', deleteResource);
-router.get('/getByField', getResource);
-router.put('/updateById', updateResource);
+router.get('/getById', getResource);
+router.patch('/updateById', updateResource);
 
 module.exports = router;

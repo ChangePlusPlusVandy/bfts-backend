@@ -28,7 +28,7 @@ const deleteResource = async (req, res) => {
 
 const getResource = async (req, res) => {
 	try {
-		const data = await Resource.findById(req.params.id);
+		const data = await Resource.findById(req.query.id);
 		res.json(data);
 	} catch (error) {
 		res.status(500).json({ message: error.message });
