@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Message = require('../models/messages.js');
 
 const createMessage = async (req, res) => {
@@ -11,41 +11,38 @@ const createMessage = async (req, res) => {
 		const dataToSave = await message.save();
 		res.status(200).json(dataToSave);
 	} catch (error) {
-        res.status(500).json({message: error.message})
-    }
+		res.status(500).json({ message: error.message });
+	}
 };
 
 const getMessage = async (req, res) => {
-	try{
-        const post = await Message.find({sender : req.params.userId});
-        res.json(post)
-    }
-    catch(error){
-        res.status(500).json({message: error.message})
-    }
+	try {
+		const post = await Message.find({ sender: req.params.userId });
+		res.json(post);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
 };
 
 const updateMessage = async (req, res) => {
 	try {
 		const filter = { _id: mongoose.Types.ObjectId(req.params.messageId) };
 		const targetPost = await Message.findOneAndUpdate(filter, {
-			message: req.body.message
+			message: req.body.message,
 		});
 		res.send(targetPost);
-	}
-	catch (error) {
-        res.status(500).json({message: error.message})
+	} catch (error) {
+		res.status(500).json({ message: error.message });
 	}
 };
 
 const deleteMessage = async (req, res) => {
 	try {
-		const filter = { _id: mongoose.Types.ObjectId(req.params.messageId)};
+		const filter = { _id: mongoose.Types.ObjectId(req.params.messageId) };
 		const targetPost = await Message.deleteOne(filter);
 		res.send(targetPost);
-	}
-	catch (error) {
-		res.status(500).json({message: error.message})
+	} catch (error) {
+		res.status(500).json({ message: error.message });
 	}
 };
 

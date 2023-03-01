@@ -20,6 +20,6 @@ router.delete('/deleteById/:postId', deletePost);
 router.post('/replyById/:postId', replyToPost);
 router.delete('/unreplyById/:postId', unreplyToPost);
 router.post('/reactById/:postId', reactToPost);
-router.delete('/unreactById/:postId', unreactToPost)
+router.delete('/unreactById/:postId', unreactToPost);
 
 module.exports = router;
