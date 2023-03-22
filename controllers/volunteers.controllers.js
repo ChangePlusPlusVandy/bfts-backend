@@ -1,4 +1,5 @@
-const Volunteer = require('../models/volunteers');
+const mongoose = require('mongoose');
+const Volunteer = require('../models/volunteers.js');
 
 const createVolunteer = async (req, res) => {
 	const volunteer = new Volunteer({
@@ -24,12 +25,17 @@ const createVolunteer = async (req, res) => {
 	}
 };
 
-const deleteVolunteer = (req, res) => {
-	res.send('Delete Volunteer');
+const deleteVolunteer = async (req, res) => {
+	try {
+		const filter = { _id: mongoose.Types.ObjectId(req.params.volunteerId) };
+		const targetPost = await Volunteer.deleteOne(filter);
+		res.send(targetPost);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
 };
 
 const getVolunteer = async (req, res) => {
-	res.send('Get Volunteer');
 	try {
 		const data = await Volunteer.find();
 		res.json(data);
@@ -38,8 +44,21 @@ const getVolunteer = async (req, res) => {
 	}
 };
 
-const updateVolunteer = (req, res) => {
-	res.send('Update Volunteer');
+const updateVolunteer = async (req, res) => {
+	try {
+		const filter = { _id: mongoose.Types.ObjectId(req.params.volunteerId) };
+		const targetPost = await Volunteer.findOneAndUpdate(filter, {
+			location: req.body.location,
+			phone: req.body.phone,
+			email: req.body.email,
+			vaccination: req.body.vaccination,
+			socialmedia: req.body.socialmedia,
+			background: req.body.background,
+		});
+		res.send(targetPost);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
 };
 
 module.exports = {

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const iteractedSchema = new Schema({
+const interactedSchema = new Schema({
 	volunteer: {
 		required: true,
 		type: String,
@@ -48,15 +48,16 @@ const clientsSchema = new Schema({
 		type: [Schema.Types.ObjectId],
 	},
 	shelter: {
-		required: true,
+		required: false,
 		type: Boolean,
 	},
 	specialNeeds: {
-		required: true,
+		required: false,
 		type: [String],
 	},
 	interacted: [
 		{
+			required: false,
 			type: Schema.Types.ObjectId,
 			ref: 'interacted',
 		},
