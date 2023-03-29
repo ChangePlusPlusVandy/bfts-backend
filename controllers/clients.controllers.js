@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Client = require('../models/clients.js');
 
 const createClient = async (req, res) => {
-	res.send('Create Client');
 	const client = new Client({
 		name: req.body.name,
 		pronouns: req.body.pronouns,
@@ -26,7 +25,7 @@ const createClient = async (req, res) => {
 
 const deleteClient = async (req, res) => {
 	try {
-		const filter = { _id: mongoose.Types.ObjectId(req.params.clientId) };
+		const filter = { _id: mongoose.Types.ObjectId(req.body.clientId) };
 		const targetPost = await Client.deleteOne(filter);
 		res.send(targetPost);
 	} catch (error) {
@@ -35,7 +34,6 @@ const deleteClient = async (req, res) => {
 };
 
 const getClient = async (req, res) => {
-	res.send('Get Client');
 	try {
 		const data = await Client.find();
 		res.json(data);
@@ -46,7 +44,7 @@ const getClient = async (req, res) => {
 
 const updateClient = async (req, res) => {
 	try {
-		const filter = { _id: mongoose.Types.ObjectId(req.params.clientId) };
+		const filter = { _id: mongoose.Types.ObjectId(req.body.clientId) };
 		const targetPost = await Client.findOneAndUpdate(filter, {
 			location: req.body.location,
 			shelter: req.body.shelter,

@@ -12,6 +12,6 @@ const router = express.Router();
 router.post('/create', createVolunteer);
 router.delete('/deleteById', deleteVolunteer);
 router.get('/getById', getVolunteer);
-router.put('/updateById', updateVolunteer);
+router.patch('/updateById', updateVolunteer);
 
 module.exports = router;
