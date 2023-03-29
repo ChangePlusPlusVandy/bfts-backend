@@ -35,7 +35,8 @@ const deleteClient = async (req, res) => {
 
 const getClient = async (req, res) => {
 	try {
-		const data = await Client.find();
+		const filter = { _id: mongoose.Types.ObjectId(req.body.clientId) };
+		const data = await Client.findOne(filter);
 		res.json(data);
 	} catch (error) {
 		res.status(500).json({ message: error.message });
