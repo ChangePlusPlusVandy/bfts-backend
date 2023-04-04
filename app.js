@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 	res.send('Express Auth Temp!');
 });
 
-// app.use('/data')//, VerifyToken, require('./firebase-express-auth/dataRoute'));
+app.use('/data'); //, VerifyToken, require('./firebase-express-auth/dataRoute'));
 
 // Routers
 // app.use('/messages', require('./routes/messages.router.js'));
