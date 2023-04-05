@@ -59,4 +59,4 @@ const volunteerSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-module.exports = Message = mongoose.model('volunteers', volunteerSchema);
+module.exports = Volunteer = mongoose.model('volunteers', volunteerSchema);
