@@ -1,40 +1,68 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const clientSchema = new Schema(
-	{
-		name: {
-			required: true,
-			type: String,
-		},
-		pronouns: {
-			required: true,
-			type: String,
-		},
-		birthday: {
-			required: true,
-			type: Date,
-		},
-		location: {
-			required: true,
-			type: String,
-		},
-		livingSituation: {
-			required: true,
-			type: String,
-		},
-		background: {
-			required: true,
-			type: String,
-		},
-		resourceTags: {
-			required: false,
-			type: [Schema.Types.ObjectId],
-		},
+const interactedSchema = new Schema({
+	volunteer: {
+		required: true,
+		type: String,
 	},
-	{
-		timestamps: true,
-	}
-);
+	time: {
+		required: true,
+		type: Number,
+	},
+});
 
-module.exports = Client = mongoose.model('Client', clientSchema);
+const interacted = mongoose.model('interacted', interactedSchema);
+
+const clientsSchema = new Schema({
+	name: {
+		required: true,
+		type: String,
+	},
+	pronouns: {
+		required: true,
+		type: String,
+	},
+	gender: {
+		required: true,
+		type: String,
+	},
+	birthday: {
+		required: true,
+		type: Number,
+	},
+	location: {
+		required: true,
+		type: String,
+	},
+	livingSituation: {
+		required: true,
+		type: String,
+	},
+	background: {
+		required: true,
+		type: String,
+	},
+	resourceTags: {
+		required: false,
+		type: [Schema.Types.ObjectId],
+	},
+	shelter: {
+		required: false,
+		type: Boolean,
+	},
+	specialNeeds: {
+		required: false,
+		type: [String],
+	},
+	interacted: [
+		{
+			required: false,
+			type: Schema.Types.ObjectId,
+			ref: 'interacted',
+		},
+	],
+});
+
+
+module.exports = Client = mongoose.model('clients', clientsSchema);

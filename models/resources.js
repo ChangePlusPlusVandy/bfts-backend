@@ -30,3 +30,4 @@ const resourceSchema = new Schema(
 );
 
 module.exports = Resource = mongoose.model('Resource', resourceSchema);
+

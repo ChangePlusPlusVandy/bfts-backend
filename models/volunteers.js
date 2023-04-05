@@ -21,7 +21,7 @@ const volunteerSchema = new mongoose.Schema(
 		},
 		birthday: {
 			required: true,
-			type: Date,
+			type: Number,
 		},
 		location: {
 			required: true,
@@ -41,7 +41,7 @@ const volunteerSchema = new mongoose.Schema(
 		},
 		startdate: {
 			required: true,
-			type: Date,
+			type: Number,
 		},
 		startlocation: {
 			required: true,
@@ -59,4 +59,4 @@ const volunteerSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-module.exports = Volunteer = mongoose.model('Volunteer', volunteerSchema);
+module.exports = Volunteer = mongoose.model('volunteers', volunteerSchema);

@@ -4,9 +4,9 @@ const { createClient, deleteClient, getClient, updateClient } = require('../cont
 
 const router = express.Router();
 
-router.get('/create', createClient);
-router.get('/deleteById', deleteClient);
+router.post('/create', createClient);
+router.delete('/deleteById', deleteClient);
 router.get('/getById', getClient);
-router.get('/updateById', updateClient);
+router.patch('/updateById', updateClient);
 
 module.exports = router;
