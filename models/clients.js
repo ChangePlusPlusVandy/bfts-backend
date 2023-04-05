@@ -64,5 +64,5 @@ const clientsSchema = new Schema({
 	],
 });
 
-// Prevent recompilation of model if it already exists
+
 module.exports = Client = mongoose.model('clients', clientsSchema);

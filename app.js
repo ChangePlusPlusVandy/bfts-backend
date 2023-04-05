@@ -30,11 +30,7 @@ database.once('connected', () => {
 	console.log('Database Connected');
 });
 
-app.get('/', (req, res) => {
-	res.send('Express Auth Temp!');
-});
-
-app.use('/data', VerifyToken, require('./firebase-express-auth/dataRoute'));
+app.use('/', VerifyToken, require('./firebase-express-auth/dataRoute'));
 
 // Routers
 app.use('/messages', require('./routes/messages.router.js'));

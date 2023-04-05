@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const resourcesSchema = new Schema(
+const resourceSchema = new Schema(
 	{
 		title: {
 			type: String,
@@ -20,7 +20,7 @@ const resourcesSchema = new Schema(
 			required: false,
 		},
 		contactNumber: {
-			type: Integer,
+			type: Number,
 			required: false,
 		},
 	},
@@ -29,5 +29,5 @@ const resourcesSchema = new Schema(
 	}
 );
 
-// Prevent recompilation of model if it already exists
-module.exports = Message = mongoose.model('resources', resourcesSchema);
+module.exports = Resource = mongoose.model('Resource', resourceSchema);
+

@@ -1,7 +1,23 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
-const postsSchema = new mongoose.Schema(
+const repliesSchema = new mongoose.Schema(
+	{
+		poster: {
+			type: String,
+			required: true,
+		},
+		text: {
+			type: String,
+			required: false,
+		},
+	},
+	{
+		timestamps: true,
+	}
+);
+
+const postSchema = new mongoose.Schema(
 	{
 		poster: {
 			type: ObjectId,
@@ -15,12 +31,8 @@ const postsSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		isReply: {
-			type: Boolean,
-			required: true,
-		},
 		replies: {
-			type: [ObjectId],
+			type: [repliesSchema],
 			required: false,
 		},
 		reactions: {
@@ -34,4 +46,4 @@ const postsSchema = new mongoose.Schema(
 );
 
 // Prevent recompilation of model if it already exists
-module.exports = Message = mongoose.model('posts', postsSchema);
+module.exports = Post = mongoose.model('posts', postSchema);
