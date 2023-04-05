@@ -11,7 +11,7 @@ npm-debug.*
 web-build/
 
 *.env
-/firebase-express-auth/serviceAccountKey.json
+/firebase-express-auth/service-account-key.json
 
 # macOS
 .DS_Store
