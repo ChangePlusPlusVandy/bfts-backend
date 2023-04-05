@@ -34,14 +34,14 @@ app.get('/', (req, res) => {
 	res.send('Express Auth Temp!');
 });
 
-app.use('/data'); //, VerifyToken, require('./firebase-express-auth/dataRoute'));
+app.use('/data', VerifyToken, require('./firebase-express-auth/dataRoute'));
 
 // Routers
-// app.use('/messages', require('./routes/messages.router.js'));
+app.use('/messages', require('./routes/messages.router.js'));
 app.use('/volunteers', require('./routes/volunteers.router.js'));
 app.use('/clients', require('./routes/clients.router.js'));
-// app.use('/resources', require('./routes/resources.router.js'));
-// app.use('/posts', require('./routes/posts.router.js'));
+app.use('/resources', require('./routes/resources.router.js'));
+app.use('/posts', require('./routes/posts.router.js'));
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);
