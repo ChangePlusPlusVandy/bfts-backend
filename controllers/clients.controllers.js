@@ -1,6 +1,16 @@
 const mongoose = require('mongoose');
 const Client = require('../models/clients.js');
 
+
+const getAllClient = async (req, res) => {
+	try {
+		const data = await Client.find({});
+		res.json(data);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+}
+
 const createClient = async (req, res) => {
 	const client = new Client({
 		name: req.body.name,
@@ -65,4 +75,5 @@ module.exports = {
 	deleteClient,
 	getClient,
 	updateClient,
+	getAllClient
 };
