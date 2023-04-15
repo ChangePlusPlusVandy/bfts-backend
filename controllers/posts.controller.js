@@ -6,6 +6,7 @@ const createPost = async (req, res) => {
 		poster: req.body.poster,
 		title: req.body.title,
 		text: req.body.text,
+		name: req.body.name,
 		replies: [],
 		reactions: [],
 	});
