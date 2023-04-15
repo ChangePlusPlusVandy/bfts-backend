@@ -20,7 +20,7 @@ const repliesSchema = new mongoose.Schema(
 const postSchema = new mongoose.Schema(
 	{
 		poster: {
-			type: ObjectId,
+			type: String,
 			required: true,
 		},
 		title: {
