@@ -37,7 +37,7 @@ const deleteVolunteer = async (req, res) => {
 
 const getVolunteer = async (req, res) => {
 	try {
-		const filter = { firebaseid: mongoose.Types.ObjectId(req.params.volunteerId) };
+		const filter = { firebaseid: req.params.volunteerId };
 		const data = await Volunteer.findOne(filter);
 		res.json(data);
 	} catch (error) {
@@ -47,7 +47,7 @@ const getVolunteer = async (req, res) => {
 
 const updateVolunteer = async (req, res) => {
 	try {
-		const filter = { firebaseid: mongoose.Types.ObjectId(req.body.volunteerId) };
+		const filter = { firebaseid: req.params.volunteerId };
 		const targetPost = await Volunteer.findOneAndUpdate(filter, {
 			location: req.body.location,
 			phone: req.body.phone,
