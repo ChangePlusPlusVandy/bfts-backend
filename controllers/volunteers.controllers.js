@@ -27,7 +27,7 @@ const createVolunteer = async (req, res) => {
 
 const deleteVolunteer = async (req, res) => {
 	try {
-		const filter = { _id: mongoose.Types.ObjectId(req.body.volunteerId) };
+		const filter = { _id: mongoose.Types.ObjectId(req.params.volunteerId) };
 		const targetPost = await Volunteer.deleteOne(filter);
 		res.send(targetPost);
 	} catch (error) {
@@ -37,7 +37,7 @@ const deleteVolunteer = async (req, res) => {
 
 const getVolunteer = async (req, res) => {
 	try {
-		const filter = { firebaseid: mongoose.Types.ObjectId(req.body.volunteerId) };
+		const filter = { firebaseid: mongoose.Types.ObjectId(req.params.volunteerId) };
 		const data = await Volunteer.findOne(filter);
 		res.json(data);
 	} catch (error) {
