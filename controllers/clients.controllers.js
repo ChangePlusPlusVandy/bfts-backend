@@ -57,6 +57,8 @@ const updateClient = async (req, res) => {
 	try {
 		const filter = { _id: mongoose.Types.ObjectId(req.body.clientId) };
 		const targetPost = await Client.findOneAndUpdate(filter, {
+			name: req.body.name,
+			pronouns: req.body.pronouns,
 			location: req.body.location,
 			shelter: req.body.shelter,
 			livingSituation: req.body.livingSituation,
