@@ -35,6 +35,16 @@ const getResource = async (req, res) => {
 	}
 };
 
+const getAllResources = async (req, res) => {
+	try {
+		const data = await Resource.find({});
+		res.json(data);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+};
+
+
 const updateResource = async (req, res) => {
 	try {
 		const data = await Resource.findByIdAndUpdate(req.body.id, req.body);
@@ -49,4 +59,5 @@ module.exports = {
 	deleteResource,
 	getResource,
 	updateResource,
+	getAllResources
 };
