@@ -20,7 +20,7 @@ const resourceSchema = new Schema(
 			required: false,
 		},
 		contactNumber: {
-			type: Number,
+			type: String,
 			required: false,
 		},
 	},
