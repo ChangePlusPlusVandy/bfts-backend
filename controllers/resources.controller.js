@@ -5,7 +5,7 @@ const createResource = async (req, res) => {
 		title: req.body.title,
 		category: req.body.category,
 		website: req.body.website,
-		contactName: req.body.contactName,
+		address: req.body.contactName,
 		contactNumber: req.body.contactNumber,
 	});
 

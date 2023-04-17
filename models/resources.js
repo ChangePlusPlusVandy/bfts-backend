@@ -15,7 +15,7 @@ const resourceSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		contactName: {
+		address: {
 			type: String,
 			required: false,
 		},
