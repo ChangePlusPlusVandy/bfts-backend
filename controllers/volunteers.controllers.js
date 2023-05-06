@@ -56,6 +56,7 @@ const updateVolunteer = async (req, res) => {
 			pronouns: req.body.pronouns,
 			vaccination: req.body.vaccination,
 			background: req.body.background,
+			gender: req.body.gender
 		});
 		res.send(targetPost);
 	} catch (error) {
