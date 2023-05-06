@@ -38,7 +38,7 @@ const deleteVolunteer = async (req, res) => {
 
 const getVolunteer = async (req, res) => {
 	try {
-		const filter = { _id: mongoose.Types.ObjectId(req.params.volunteerId) };
+		const filter = { firebaseid: req.params.volunteerId };
 		const data = await Volunteer.findOne(filter);
 		res.json(data);
 	} catch (error) {
