@@ -48,7 +48,7 @@ const getVolunteer = async (req, res) => {
 
 const updateVolunteer = async (req, res) => {
 	try {
-		const filter = { firebaseid: req.params.volunteerId };
+		const filter = { firebaseid: req.body.volunteerId };
 		const targetPost = await Volunteer.findOneAndUpdate(filter, {
 			location: req.body.location,
 			phone: req.body.phone,
