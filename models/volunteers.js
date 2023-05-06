@@ -19,6 +19,10 @@ const volunteerSchema = new mongoose.Schema(
 			required: true,
 			type: String,
 		},
+		gender: {
+			required: true,
+			type: String,
+		},
 		birthday: {
 			required: true,
 			type: Number,
