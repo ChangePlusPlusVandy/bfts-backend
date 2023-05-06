@@ -16,6 +16,7 @@ const createVolunteer = async (req, res) => {
 		startlocation: req.body.startlocation,
 		socialmedia: req.body.socialmedia,
 		background: req.body.background,
+		gender: req.body.gender
 	});
 	try {
 		const data = await volunteer.save();
@@ -52,8 +53,8 @@ const updateVolunteer = async (req, res) => {
 			location: req.body.location,
 			phone: req.body.phone,
 			email: req.body.email,
+			pronouns: req.body.pronouns,
 			vaccination: req.body.vaccination,
-			socialmedia: req.body.socialmedia,
 			background: req.body.background,
 		});
 		res.send(targetPost);
