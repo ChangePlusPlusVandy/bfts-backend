@@ -48,7 +48,7 @@ const getVolunteer = async (req, res) => {
 
 const updateVolunteer = async (req, res) => {
 	try {
-		const filter = { firebaseid: req.body.volunteerId };
+		const filter = { _id: mongoose.Types.ObjectId(req.body.volunteerId) };
 		const targetPost = await Volunteer.findOneAndUpdate(filter, {
 			location: req.body.location,
 			phone: req.body.phone,
