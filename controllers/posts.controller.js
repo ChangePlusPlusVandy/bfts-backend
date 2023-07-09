@@ -34,6 +34,7 @@ const updatePost = async (req, res) => {
 		const targetPost = await Post.findOneAndUpdate(filter, {
 			title: req.body.title,
 			text: req.body.text,
+			replies: req.body.replies
 		});
 
 		res.send(targetPost);
