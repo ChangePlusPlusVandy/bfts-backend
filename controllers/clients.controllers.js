@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Client = require('../models/clients.js');
 
-
+// Test comment
 const getAllClient = async (req, res) => {
 	try {
 		const data = await Client.find({});
