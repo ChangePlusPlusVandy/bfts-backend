@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const VerifyToken = require('./firebase-express-auth/VerifyToken');
 
 dotenv.config({
-	path: './config.env',
+	path: './.env',
 });
 
 const app = express();
